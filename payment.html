@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الدفع - DzDrive</title>
+    <link rel="icon" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav><a href="index1.html" class="logo"><img src="logo.png" alt="DzDrive Logo"></a></nav>
+    </header>
+    <main>
+        <section class="payment-section">
+            <div id="payment-container">
+                <div class="order-summary">
+                    <h3><i class="fas fa-file-invoice-dollar"></i> ملخص الطلب</h3>
+                    <p id="summary-text">ملخص الطلب يظهر هنا...</p>
+                    <p class="total-price">المبلغ الإجمالي للدفع: <strong id="payment-total">0 دج</strong></p>
+                </div>
+                <div class="payment-methods">
+                    <h3>اختر طريقة الدفع</h3>
+                    <div id="payment-choices">
+                        <div class="payment-choice-box" data-target="card-payment"><i class="fas fa-credit-card"></i><span>بطاقة بنكية</span></div>
+                        <div class="payment-choice-box" data-target="baridimob-payment"><i class="fas fa-mobile-alt"></i><span>بريدي موب</span></div>
+                        <div class="payment-choice-box" data-target="paypal-payment"><i class="fab fa-paypal"></i><span>PayPal</span></div>
+                    </div>
+                    <div id="payment-forms-container">
+                        <form id="card-payment" class="payment-form">
+                            <h4>معلومات البطاقة (CIB / ذهبية)</h4>
+                            <input type="text" placeholder="الاسم الكامل على البطاقة" required>
+                            <input type="text" placeholder="رقم البطاقة (16 رقم)" inputmode="numeric" pattern="[0-9\s]{16,19}" maxlength="19" required>
+                            <div style="display: flex; gap: 10px;">
+                                <input type="text" placeholder="الشهر (MM)" inputmode="numeric" pattern="0[1-9]|1[0-2]" required>
+                                <input type="text" placeholder="السنة (YY)" inputmode="numeric" pattern="[0-9]{2}" required>
+                                <input type="text" placeholder="CVV" inputmode="numeric" pattern="[0-9]{3}" maxlength="3" required>
+                            </div>
+                            <button type="submit" class="btn">تأكيد الدفع</button>
+                        </form>
+                        <form id="baridimob-payment" class="payment-form">
+                             <h4>معلومات بريدي موب</h4>
+                             <input type="text" placeholder="أدخل رقم RIP الخاص بك" required>
+                             <button type="submit" class="btn">دفع عبر بريدي موب</button>
+                        </form>
+                        <div id="paypal-payment" class="payment-form">
+                            <h4>الدفع عبر PayPal</h4>
+                            <p>سيتم توجيهك إلى موقع PayPal الآمن لإكمال عملية الدفع.</p>
+                            <a href="https://www.paypal.com/signin" target="_blank" class="btn paypal-btn"><i class="fab fa-paypal"></i> الإنتقال إلى PayPal</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="success-message" style="display:none;">
+                <i class="fas fa-check-circle"></i>
+                <h2>تم الدفع بنجاح!</h2>
+                <p>شكراً لثقتكم في DzDrive. ستصلك رسالة تأكيد قريباً.</p>
+                <a href="index1.html" class="btn" style="width: auto; margin-top: 20px;">العودة للرئيسية</a>
+            </div>
+        </section>
+    </main>
+    <a href="#" id="back-to-top" class="back-to-top-btn" aria-label="Go to top"><i class="fas fa-arrow-up"></i></a>
+    <footer><p>&copy; حقوق النشر 2025 - DzDrive. جميع الحقوق محفوظة.</p></footer>
+    <script src="script.js"></script>
+</body>
+</html>
+

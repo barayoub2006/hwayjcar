@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شراء سيارة - DzDrive</title>
+    <!-- === EL GHALTA KANET HNA: El path tsgem l 'css/style.css' === -->
+    <link rel="icon" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="index1.html" class="logo"><img src="logo.png" alt="DzDrive Logo"></a>
+            <div class="menu-icon" id="menu-icon">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index1.html">العودة للرئيسية</a></li>
+                <li><a href="louer1.html">صفحة الكراء</a></li>
+            </ul>
+        </nav>
+    </header>
+<main>
+    <section class="car-showcase">
+        <h2>اختر سيارتك للشراء</h2>
+        <p style="margin-bottom: 40px; font-size: 1.2rem;">تصفح مجموعتنا الواسعة من السيارات الجديدة والمستعملة المتوفرة للبيع الفوري.</p>
+
+        <div class="filter-container">
+            <div class="filter-group">
+                <label for="search-name"><i class="fas fa-search"></i> إبحث بالاسم:</label>
+                <input type="text" id="search-name" placeholder="مثال: Clio, Golf...">
+            </div>
+            <div class="filter-group">
+                <label for="filter-transmission"><i class="fas fa-cogs"></i> ناقل الحركة:</label>
+                <select id="filter-transmission">
+                    <option value="all">الكل</option>
+                    <option value="يدوي">يدوي</option>
+                    <option value="أوتوماتيك">أوتوماتيك</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filter-price">السعر الأقصى: <span id="price-value">8,000,000</span> دج</label>
+                <input type="range" id="filter-price" min="2000000" max="8000000" step="100000" value="8000000">
+            </div>
+        </div>
+        <div class="car-grid">
+            <div class="car-card" 
+                 data-name="Hyundai Grand i10"
+                 data-price="2800000" 
+                 data-transmission="يدوي"
+                 data-img="car4.jpg" 
+                 data-img-2="https://placehold.co/600x400/2b2d42/ffffff?text=i10+Interior"
+                 data-img-3="https://placehold.co/600x400/2b2d42/ffffff?text=i10+Side"
+                 data-stock="5" 
+                 data-description="سيارة اقتصادية ومناسبة جدا للمدن، سهلة الركن ومريحة."
+                 data-motor="1.2L 4-Cylinder" 
+                 data-power="83 حصان" 
+                 data-year="2023"
+                 data-doors="5" 
+                 data-fuel="5.5 لتر/100كم"
+                 data-features="نظام وسائط متعددة بشاشة لمس, تكييف هواء, حساسات خلفية للركن">
+                <img src="car4.jpg" alt="Hyundai Grand i10">
+                <h3>Hyundai Grand i10</h3>
+                <p class="price">السعر: 2,800,000 دج</p>
+                <button class="btn details-btn">مشاهدة التفاصيل</button>
+            </div>
+
+            <div class="car-card" 
+                 data-name="Volkswagen Golf 8" 
+                 data-price="4500000" 
+                 data-transmission="أوتوماتيك"
+                 data-img="car5.jpg"
+                 data-stock="8" 
+                 data-description="سيارة هاتشباك عصرية، مثالية للمدينة ومجهزة بأحدث التقنيات."
+                 data-motor="1.4L TSI" 
+                 data-power="150 حصان" 
+                 data-year="2022"
+                 data-doors="5" 
+                 data-fuel="6.0 لتر/100كم">
+                <img src="car5.jpg" alt="Volkswagen Golf 8">
+                <h3>Volkswagen Golf 8</h3>
+                <p class="price">السعر: 4,500,000 دج</p>
+                <button class="btn details-btn">مشاهدة التفاصيل</button>
+            </div>
+
+            <div class="car-card" 
+                 data-name="Peugeot 208" 
+                 data-price="3200000" 
+                 data-transmission="يدوي"
+                 data-img="car6.jpg"
+                 data-stock="12" 
+                 data-description="تصميم فرنسي جريء ومقصورة i-Cockpit مبتكرة."
+                 data-motor="1.2L PureTech" 
+                 data-power="100 حصان" 
+                 data-year="2023"
+                 data-doors="5" 
+                 data-fuel="5.4 لتر/100كم">
+                <img src="car6.jpg" alt="Peugeot 208">
+                <h3>Peugeot 208</h3>
+                <p class="price">السعر: 3,200,000 دج</p>
+                <button class="btn details-btn">مشاهدة التفاصيل</button>
+            </div>
+
+            <div class="car-card" 
+                 data-name="Renault Clio 5" 
+                 data-price="3100000" 
+                 data-transmission="يدوي"
+                 data-img="car7.jpg"
+                 data-stock="15"
+                 data-description="أناقة وجودة عالية في فئتها، محبوبة الشباب ومناسبة للعائلات الصغيرة."
+                 data-motor="1.0L TCe" 
+                 data-power="90 حصان" 
+                 data-year="2023" 
+                 data-doors="5"
+                 data-fuel="5.2 لتر/100كم">
+                <img src="car7.jpg" alt="Renault Clio 5">
+                <h3>Renault Clio 5</h3>
+                <p class="price">السعر: 3,100,000 دج</p>
+                <button class="btn details-btn">مشاهدة التفاصيل</button>
+            </div>
+
+            <div class="car-card" 
+                 data-name="Dacia Sandero" 
+                 data-price="2900000" 
+                 data-transmission="يدوي"
+                 data-img="car8.jpg"
+                 data-stock="10" 
+                 data-description="سيارة عملية وموثوقة، مع قيمة ممتازة مقابل السعر."
+                 data-motor="1.0L SCe" 
+                 data-power="75 حصان" 
+                 data-year="2023" 
+                 data-doors="5"
+                 data-fuel="5.3 لتر/100كم">
+                <img src="car8.jpg" alt="Dacia Sandero">
+                <h3>Dacia Sandero</h3>
+                <p class="price">السعر: 2,900,000 دج</p>
+                <button class="btn details-btn">مشاهدة التفاصيل</button>
+            </div>
+
+            <div class="car-card" 
+                 data-name="Toyota Hilux" 
+                 data-price="6500000" 
+                 data-transmission="يدوي"
+                 data-img="car9.jpg" 
+                 data-stock="7" 
+                 data-description="شاحنة بيك-أب أسطورية، قوة ومتانة على جميع أنواع الطرقات."
+                 data-motor="2.4L Diesel" 
+                 data-power="150 حصان" 
+                 data-year="2022"
+                 data-doors="4" 
+                 data-fuel="8.0 لتر/100كم">
+                <img src="car9.jpg" alt="Toyota Hilux">
+                <h3>Toyota Hilux</h3>
+                <p class="price">السعر: 6,500,000 دج</p>
+                <button class="btn details-btn">مشاهدة التفاصيل</button>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+
+    <div id="details-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        
+        <div class="modal-gallery">
+            <img id="modal-main-img" src="" alt="Car Image" class="modal-main-image">
+            <div class="modal-thumbnails">
+                <img id="thumb1" src="" alt="Thumbnail 1" class="modal-thumb active">
+                <img id="thumb2" src="" alt="Thumbnail 2" class="modal-thumb">
+                <img id="thumb3" src="" alt="Thumbnail 3" class="modal-thumb">
+            </div>
+        </div>
+
+        <h2 id="modal-name"></h2>
+        <p id="modal-description"></p>
+        
+        <div class="modal-specs-container">
+            <h4><i class="fas fa-cogs"></i> المواصفات التقنية</h4>
+            <div class="modal-details-grid">
+                <p><strong>المحرك:</strong> <span id="modal-motor"></span></p>
+                <p><strong>القوة:</strong> <span id="modal-power"></span></p>
+                <p><strong>ناقل الحركة:</strong> <span id="modal-transmission"></span></p>
+                <p><strong>سنة الصنع:</strong> <span id="modal-year"></span></p>
+                <p><strong>عدد الأبواب:</strong> <span id="modal-doors"></span></p>
+                <p><strong>استهلاك الوقود:</strong> <span id="modal-fuel"></span></p>
+            </div>
+        </div>
+
+        <div class="modal-features-container">
+            <h4><i class="fas fa-star"></i> مميزات إضافية</h4>
+            <ul id="modal-features-list"></ul>
+        </div>
+        
+        <div class="modal-purchase-section">
+            <p id="modal-stock" class="stock"></p>
+            <p id="modal-price" class="price"></p>
+            <button class="btn" onclick="alert('سيتم توجيهك لصفحة الدفع قريباً!')">شراء الآن</button>
+        </div>
+    </div>
+</div>
+<a href="#" id="back-to-top" class="back-to-top-btn" aria-label="Go to top"><i class="fas fa-arrow-up"></i></a>
+    <footer>
+        <div class="social-media">
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p>&copy; حقوق النشر 2025 - DzDrive. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <!-- === EL GHALTA KANET HNA TANI: El path tsgem l 'js/script.js' === -->
+    <script src="script.js"></script>
+</body>
+
+</html>

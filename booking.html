@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حجز سيارة - DzDrive</title>
+    <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index1.html" class="logo"><img src="logo.png" alt="DzDrive Logo"></a>
+        </nav>
+    </header>
+    <main>
+        <section class="booking-section">
+            <h2>إتمام حجز الكراء</h2>
+            <p>الرجاء تحديد مدة الكراء بدقة. أي جزء من اليوم يُحسب كيوم كامل.</p>
+            <div class="booking-container">
+                <div class="car-summary">
+                    <h3>السيارة المختارة</h3>
+                    <img id="car-img" src="https://placehold.co/600x400/2b2d42/ffffff?text=Car" alt="Car Image">
+                    <h4 id="car-name">اسم السيارة</h4>
+                    <p>السعر لليوم: <span id="car-daily-rate">0</span> دج</p>
+                </div>
+                <form class="booking-form" id="booking-form">
+                    <h3>اختر مدة الكراء</h3>
+                    <div class="date-time-picker">
+                        <div class="field">
+                            <label for="start-date"><i class="fas fa-calendar-alt"></i> من تاريخ ووقت:</label>
+                            <input type="text" id="start-date" placeholder="اختر تاريخ ووقت البداية" readonly>
+                        </div>
+                        <div class="field">
+                            <label for="end-date"><i class="fas fa-calendar-check"></i> إلى تاريخ ووقت:</label>
+                            <input type="text" id="end-date" placeholder="اختر تاريخ ووقت النهاية" readonly>
+                        </div>
+                    </div>
+                    <div id="price-calculator">
+                        <h3><i class="fas fa-calculator"></i> ملخص السعر</h3>
+                        <p>المدة المحسوبة: <strong id="calculated-days">0 أيام</strong></p>
+                        <p class="total-price">السعر الإجمالي: <strong id="total-price">0 دج</strong></p>
+                    </div>
+                    <button type="submit" class="btn">إذهب للدفع</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <a href="#" id="back-to-top" class="back-to-top-btn" aria-label="Go to top"><i class="fas fa-arrow-up"></i></a>
+    <footer>
+        <p>&copy; حقوق النشر 2025 - DzDrive. جميع الحقوق محفوظة.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // جلب عناصر الصفحة
+    const carImg = document.getElementById('car-img');
+    const carNameEl = document.getElementById('car-name');
+    const carDailyRateEl = document.getElementById('car-daily-rate');
+    const calculatedDaysEl = document.getElementById('calculated-days');
+    const totalPriceEl = document.getElementById('total-price');
+    const startDateInput = document.getElementById('start-date');
+    const endDateInput = document.getElementById('end-date');
+
+    // جلب معلومات السيارة من localStorage
+    const savedCarName = localStorage.getItem('selectedCarName');
+    const savedCarRate = localStorage.getItem('selectedCarRate');
+    const savedCarImg = localStorage.getItem('selectedCarImg');
+    const dailyRate = parseInt(savedCarRate, 10);
+
+    // التحقق من وجود معلومات السيارة وتحديث الصفحة
+    if (savedCarName && savedCarRate && savedCarImg) {
+        carNameEl.textContent = savedCarName;
+        carDailyRateEl.textContent = dailyRate.toLocaleString(); // يضيف فاصلة للآلاف
+        carImg.src = savedCarImg;
+    } else {
+        // في حالة فتح الصفحة مباشرة بدون اختيار سيارة
+        carNameEl.textContent = 'الرجاء اختيار سيارة أولاً';
+        document.querySelector('.booking-form').style.display = 'none'; // إخفاء الفورم
+    }
+
+    // --- حاسبة السعر الديناميكية ---
+    let startDate, endDate;
+
+    // دالة لحساب الأيام والسعر
+    const calculatePrice = () => {
+        if (startDate && endDate) {
+            // حساب الفرق بالمللي ثانية
+            const diffTime = Math.abs(endDate - startDate);
+            // تحويل الفرق إلى أيام (أي جزء من اليوم يحسب كيوم كامل)
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            
+            if (diffDays > 0) {
+                const total = diffDays * dailyRate;
+                calculatedDaysEl.textContent = `${diffDays} أيام`;
+                totalPriceEl.textContent = `${total.toLocaleString()} دج`;
+            } else {
+                 // في حالة اختيار نفس اليوم
+                calculatedDaysEl.textContent = `1 يوم`;
+                totalPriceEl.textContent = `${dailyRate.toLocaleString()} دج`;
+            }
+        }
+    };
+
+    // إعداد أداة اختيار التاريخ (flatpickr)
+    flatpickr(startDateInput, {
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        minDate: "today",
+        onChange: function(selectedDates) {
+            startDate = selectedDates[0];
+            // جعل تاريخ النهاية يبدأ من تاريخ البداية
+            endPicker.set('minDate', startDate);
+            calculatePrice();
+        }
+    });
+
+    const endPicker = flatpickr(endDateInput, {
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        minDate: "today",
+        onChange: function(selectedDates) {
+            endDate = selectedDates[0];
+            calculatePrice();
+        }
+    });
+
+    // منع الإرسال الافتراضي للفورم
+    document.getElementById('booking-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('سيتم توجيهك لصفحة الدفع الآن!');
+        // هنا يمكنك لاحقاً إضافة الكود للانتقال إلى صفحة الدفع الحقيقية
+    });
+});
+</script>
+</body>
+</html>

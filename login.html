@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - DzDrive</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body class="login-body">
+    <div class="auth-container">
+        
+        <form id="login-form" class="auth-form" action="login_process.php" method="POST">
+            <h2>تسجيل الدخول</h2>
+            <input type="email" name="email" placeholder="البريد الإلكتروني" required>
+            <input type="password" name="password" placeholder="كلمة المرور" required>
+            <button type="submit" class="btn">دخول</button>
+            <p class="form-toggle"><a id="forgot-password">نسيت كلمة المرور؟</a></p>
+        </form>
+
+        <form id="signup-form" class="auth-form" action="register_process.php" method="POST" style="display: none;">
+            <h2>إنشاء حساب جديد</h2>
+            <input type="text" name="fullname" placeholder="الاسم الكامل" required>
+            <input type="email" name="email" placeholder="البريد الإلكتروني" required>
+            <input type="tel" name="phone" placeholder="رقم الهاتف" required>
+            <input type="password" name="password" placeholder="كلمة المرور" required>
+            <input type="password" name="confirm_password" placeholder="تأكيد كلمة المرور" required>
+            <button type="submit" class="btn">إنشاء الحساب</button>
+        </form>
+
+        <div class="social-login">
+            <p>أو سجل الدخول عبر</p>
+            <a href="#" class="social-btn google-btn"><i class="fab fa-google"></i> Google</a>
+            <a href="#" class="social-btn facebook-btn"><i class="fab fa-facebook-f"></i> Facebook</a>
+        </div>
+        <p class="form-toggle">
+            <span id="signup-text">ليس لديك حساب؟ <a href="#" id="show-signup">سجل الآن</a></span>
+            <span id="login-text" style="display: none;">لديك حساب بالفعل؟ <a href="#" id="show-login">ادخل الآن</a></span>
+        </p>
+        <a href="index1.html" class="back-link">&larr; العودة للرئيسية</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

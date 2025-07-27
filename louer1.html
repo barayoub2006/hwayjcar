@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كراء سيارة - DzDrive</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Flatpickr Calendar CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html" class="logo"><img src="logo.png" alt="DzDrive Logo"></a>
+            <div class="menu-icon" id="menu-icon"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">العودة للرئيسية</a></li>
+                <li><a href="acheter1.html">صفحة الشراء</a></li>
+                <li><a href="login.html">تسجيل الدخول</a></li>
+            </ul>
+        </nav>
+    </header>
+<main>
+    <section class="car-showcase">
+        <h2>اختر سيارتك للكراء</h2>
+
+        <div class="filter-container">
+            <div class="filter-group">
+                <label for="search-name-louer"><i class="fas fa-search"></i> إبحث بالاسم:</label>
+                <input type="text" id="search-name-louer" placeholder="مثال: Clio, Picanto...">
+            </div>
+            <div class="filter-group">
+                <label for="filter-price-louer">السعر الأقصى لليوم: <span id="price-value-louer">25,000</span> دج</label>
+                <input type="range" id="filter-price-louer" min="3000" max="25000" step="500" value="25000">
+            </div>
+        </div>
+        <div class="car-grid rental-grid">
+            <div class="car-card" data-name="Renault Clio 5" data-daily-rate="4000">
+                <img src="car7.jpg" alt="Renault Clio 5">
+                <h3>Renault Clio 5</h3>
+                <p class="description">مثالية للتنقل داخل المدينة، اقتصادية وأنيقة.</p>
+                <p class="price">السعر لليوم: 4,000 دج</p>
+                <button class="btn rental-btn" data-car-name="Renault Clio 5" data-daily-rate="4000">إحجز الآن</button>
+            </div>
+            <div class="car-card" data-name="Kia Picanto" data-daily-rate="3500">
+                <img src="car11.jpg" alt="Kia Picanto">
+                <h3>Kia Picanto</h3>
+                <p class="description">صغيرة، عملية، وسهلة الركن. الخيار الأمثل للمدن المزدحمة.</p>
+                <p class="price">السعر لليوم: 3,500 دج</p>
+                <button class="btn rental-btn" data-car-name="Kia Picanto" data-daily-rate="3500">إحجز الآن</button>
+            </div>
+            <div class="car-card" data-name="Dacia Sandero" data-daily-rate="3800">
+                <img src="car8.jpg" alt="Dacia Sandero">
+                <h3>Dacia Sandero</h3>
+                <p class="description">سيارة عملية وموثوقة، مناسبة للعائلة الصغيرة.</p>
+                <p class="price">السعر لليوم: 3,800 دج</p>
+                <button class="btn rental-btn" data-car-name="Dacia Sandero" data-daily-rate="3800">إحجز الآن</button>
+            </div>
+            <div class="car-card" data-name="Seat Ibiza" data-daily-rate="4500">
+                <img src="car12.jpg" alt="Seat Ibiza">
+                <h3>Seat Ibiza</h3>
+                <p class="description">قيادة رياضية ممتعة وتصميم شبابي جذاب.</p>
+                <p class="price">السعر لليوم: 4,500 دج</p>
+                <button class="btn rental-btn" data-car-name="Seat Ibiza" data-daily-rate="4500">إحجز الآن</button>
+            </div>
+            <div class="car-card" data-name="Mercedes S-Class" data-daily-rate="25000">
+                <img src="car1.jpg" alt="Mercedes S-Class">
+                <h3>Mercedes S-Class</h3>
+                <p class="description">قمة الفخامة والراحة. مثالية للمناسبات الخاصة.</p>
+                <p class="price">السعر لليوم: 25,000 دج</p>
+                <button class="btn rental-btn" data-car-name="Mercedes S-Class" data-daily-rate="25000">إحجز الآن</button>
+            </div>
+            <div class="car-card" data-name="Hyundai Tucson" data-daily-rate="8000">
+                <img src="car10.jpg" alt="Hyundai Tucson">
+                <h3>Hyundai Tucson (SUV)</h3>
+                <p class="description">سيارة دفع رباعي رحبة ومناسبة للعائلات والسفر الطويل.</p>
+                <p class="price">السعر لليوم: 8,000 دج</p>
+                <button class="btn rental-btn" data-car-name="Hyundai Tucson" data-daily-rate="8000">إحجز الآن</button>
+            </div>
+        </div>
+    </section>
+
+    </main>
+<a href="#" id="back-to-top" class="back-to-top-btn" aria-label="Go to top"><i class="fas fa-arrow-up"></i></a>
+    <footer>
+        <p>&copy; حقوق النشر 2025 - DzDrive. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <!-- Flatpickr Calendar JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="script.js"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const rentalButtons = document.querySelectorAll('.rental-btn');
+
+    rentalButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const card = button.closest('.car-card');
+            const carName = button.dataset.carName;
+            const dailyRate = button.dataset.dailyRate;
+            const carImgSrc = card.querySelector('img').src;
+
+            // حفظ معلومات السيارة في التخزين المحلي للمتصفح
+            localStorage.setItem('selectedCarName', carName);
+            localStorage.setItem('selectedCarRate', dailyRate);
+            localStorage.setItem('selectedCarImg', carImgSrc);
+
+            // توجيه المستخدم إلى صفحة الحجز
+            window.location.href = 'booking.html';
+        });
+    });
+});
+</script>
+</body>
+
+</html>
